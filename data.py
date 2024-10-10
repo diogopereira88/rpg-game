@@ -26,7 +26,8 @@ class Battle_levels:
 
 class My_save:
     def __init__(self):
-        self.saves = [Warrior(), Mage(), Elf()]
+        # self.saves = []
+        self.saves = [[Warrior.create_default_warrior(), Mage.create_default_mage(), Elf.create_default_elf()]]
 
     def add_save(self, character):
         self.saves.append(character)

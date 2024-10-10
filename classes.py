@@ -1,5 +1,4 @@
 import random
-from data import Battle_levels
 
 class Character:
     def __init__(self, **character):
@@ -43,10 +42,13 @@ class Character:
 
 
 class Warrior(Character):
-    def __init__(self, name="Warrior"):
-        super().__init__(name=name, hp=100, ph_dmg=1200, mag_dmg=2, ph_armor=10, mag_armor=3)
+    def __init__(self, **warrior):
+        super().__init__(**warrior)
         self.attacks = ["Sword Attack", "*Special Attack* - Sword Mastery of Kings"]
 
+    def create_default_warrior(char_name="Warrior"):
+        return Warrior(name=char_name, hp=100, ph_dmg=12, mag_dmg=2, ph_armor=10, mag_armor=3)
+    
     def char_atk_value(self, attack):
         if self.attacks[0] == attack:
             return self.ph_dmg
@@ -137,13 +139,3 @@ class Marcos(Character):
         else:
             return (self.ph_dmg + self.mag_dmg)*5
 
-class Game():
-    def __init__(self, heroes):
-        self.heroes = heroes
-        self.battle_levels = Battle_levels()
-        self.turn = 0
-        self.level = 1
-        self.monsters = []
-
-    def battle(self):
-        pass
